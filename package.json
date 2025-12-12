@@ -1,0 +1,33 @@
+{
+  "name": "interview-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamtheretronerd/interview-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamtheretronerd/interview-system/issues"
+  },
+  "homepage": "https://github.com/iamtheretronerd/interview-system#readme",
+  "dependencies": {
+    "@langchain/core": "^1.1.4",
+    "@langchain/groq": "^1.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "joi": "^18.0.2",
+    "langchain": "^1.1.5",
+    "mongodb": "^7.0.0",
+    "multer": "^2.0.2",
+    "pdf-extraction": "^1.0.2",
+    "unpdf": "^1.4.0"
+  }
+}
