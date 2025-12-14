@@ -20,9 +20,23 @@ const interviewRoutes = require("./routes/interviewRoutes");
 app.use("/api/admin", adminRoutes);
 app.use("/api/interview", interviewRoutes);
 
+// Serve frontend in production
+if (process.env.NODE_ENV === "production") {
+  const buildPath = path.resolve(__dirname, "..", "frontend", "dist");
+
+  console.log("Serving frontend from:", buildPath);
+
+  app.use(express.static(buildPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(buildPath, "index.html"));
+  });
+}
+
+
 // 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, error: "Route not found" });
+app.use("/api/*", (req, res) => {
+  res.status(404).json({ success: false, error: "API route not found" });
 });
 
 // Error handler (must be last)
