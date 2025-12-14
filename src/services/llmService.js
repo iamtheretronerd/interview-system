@@ -37,6 +37,9 @@ Evaluate the student against the requirements in YOUR KNOWLEDGEBASE, then respon
 1. A friendly message explaining the result
 2. A JSON block at the end in this exact format:
 
+IMPORTANT: DO not mention you will be returning a JSON block at the end. Just return the JSON block
+and mention the interview will end after this.
+
 \`\`\`json
 {
   "completed": true,
