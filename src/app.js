@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorHandler");
+const path = require("path");
 
 const app = express();
 
@@ -35,9 +36,10 @@ if (process.env.NODE_ENV === "production") {
 
 
 // 404 handler
-app.use("/api/*", (req, res) => {
+app.use("/api", (req, res) => {
   res.status(404).json({ success: false, error: "API route not found" });
 });
+
 
 // Error handler (must be last)
 app.use(errorHandler);
