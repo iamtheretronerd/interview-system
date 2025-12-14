@@ -21,15 +21,13 @@ const interviewRoutes = require("./routes/interviewRoutes");
 app.use("/api/admin", adminRoutes);
 app.use("/api/interview", interviewRoutes);
 
-// Serve frontend in production
 if (process.env.NODE_ENV === "production") {
   const buildPath = path.resolve(__dirname, "..", "frontend", "dist");
-
   console.log("Serving frontend from:", buildPath);
 
   app.use(express.static(buildPath));
 
-  app.get("/*", (req, res) => {
+  app.get(/^(?!\/api\/).*/, (req, res) => {
     res.sendFile(path.join(buildPath, "index.html"));
   });
 }
@@ -41,7 +39,7 @@ app.use("/api", (req, res) => {
 });
 
 
-// Error handler (must be last)
+// Error handler
 app.use(errorHandler);
 
 module.exports = app;
