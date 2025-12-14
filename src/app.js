@@ -22,13 +22,13 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/interview", interviewRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  const buildPath = path.resolve(__dirname, "..", "frontend", "dist");
+  const buildPath = path.resolve(__dirname, "..", "frontend", "out");
   console.log("Serving frontend from:", buildPath);
 
   app.use(express.static(buildPath));
 
   app.get(/^(?!\/api\/).*/, (req, res) => {
-    res.sendFile(path.join(buildPath, "index.html"));
+    res.sendFile(path.join(__dirname, '../frontend/out/index.html'));
   });
 }
 
